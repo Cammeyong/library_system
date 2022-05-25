@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= page_title  %> </title>
+</head>
+<body>
+    <a href="/logout"><button type="submit">Logout</button></a>
+
+    <form action="/borrow_list" method="post" class="form">
+
+        <h1>Students Borrowed Books List</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Id</th>
+                    <th>Book Category</th>
+                    <th>Book Title</th>
+                    <th>Borrowed Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                <% if(borrow.length) { for(var i = 0; i< borrow.length; i++) {%>
+                    <tr>
+                        <td><%= borrow[i].student_id %></td>
+                        <td><%= borrow[i].book_category %></td>
+                        <td><%= borrow[i].book_title %></td>
+                        <td><%= borrow[i].borrowed_date %></td>
+                        <td><%= borrow[i].return_date %></td>
+                        <td>
+                            <a href="/projects-edit/edit/<%=borrow[i].id%>" class="confirm">collected</a>
+                            <a href="/projects-delete/delete/<%=borrow[i].id%>" class="delete">outstanding</a>
+                        </td>
+                    </tr>
+                <% }
+                    
+                }else{ %>
+                    <tr>
+                        <td colspan="3">No Books Borrowed </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+    </form>
+</body>
+
+</html>
