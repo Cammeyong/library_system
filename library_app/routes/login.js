@@ -30,7 +30,7 @@ router.post('/login', function(req, res) {
             // req.session.last_name = rows[0].last_nm;
             // req.session.is_admin = rows[0].is_admin;
             console.log(req.session);
-            res.redirect('../views/borrowed-list');
+            res.redirect('/borrow_list');
 
         }
     })
