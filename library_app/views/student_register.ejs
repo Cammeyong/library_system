@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/student_register/add" method="post">
+
+        <label for="">Student Id</label>
+        <input type="text" name="student_id" id="student_id">
+
+        <label for="">First Name</label>
+        <input type="text" name="first_nm" id="first_nm">
+
+        <label for="">Last Name</label>
+        <input type="text" name="last_nm" id="last_nm">
+
+        <label for="">Email Address</label>
+        <input type="email" name="email" id="email">
+
+        <label for="">Password</label>
+        <input type="password" name="password" id="password">
+
+        <button type="submit">Register</button>
+    </form>
+    
+    <table>
+        <% for( let i = 0; i < it.length; i++ ) { %>
+        <tr>
+            <td><%= it[i].first_nm %> </td>
+        </tr>
+        <% } %>
+    </table>
+</body>
+</html>

@@ -38,8 +38,8 @@ router.post('/login', function(req, res) {
 
 router.get('/logout', function (req, res) {
     req.session.destroy();
-  //   req.flash('success', 'Enter Your Login email and password');
-    res.redirect('/');
+    // req.flash('success', 'Enter Your Login email and password');
+    res.redirect('/',);
 });
 
 module.exports = router;

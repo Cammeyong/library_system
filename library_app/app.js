@@ -10,13 +10,16 @@ var app = express();
 
 var conn = require('./lib/db');
 
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use(express.static(path.join(__dirname,'public')))
+
+
 var indexRoute = require('./routes/index');
+var student_registerRoute = require('./routes/student_register');
 var borrowed_listRoute = require('./routes/borrowed_list');
 var loginRoute = require('./routes/login');
 
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
-app.use(express.static(path.join(__dirname,'public')))
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -32,6 +35,7 @@ app.use(session({
 app.use(flash());
 
 //routing middleware
+app.use(student_registerRoute);
 app.use(loginRoute);
 app.use(borrowed_listRoute);
 app.use('/', indexRoute);
