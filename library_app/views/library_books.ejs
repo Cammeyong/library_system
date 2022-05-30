@@ -9,21 +9,33 @@
 </head>
 <body>
     <%- include('nav.ejs') %> 
-    <div>
-        <h1>School Library</h1>
+
+    <div class="libBookCoverImg"></div>
+
+    <h1 class="libBookH1">Library Book Directory</h1>
+
+    <input type="search" name="search" id="search" placeholder="Search Books">
+
+    <div class="libContainer">
+        
 
         <% if(library.length) { for(var i = 0; i< library.length; i++) {%>
             
-            <form action="/book_request/add" method="post">
+            <form action="/book_request/add" method="post" class="libBookForm">
 
                 <input type="hidden" name="student_id" id="student_id">
 
-                <input type="text" name="book_title" value="<%= library[i].book_title %>">
+                <label for=""><%= library[i].book_title %></label>
+                <input type="hidden" name="book_title" value="<%= library[i].book_title %>">
+                <br>
         
-                <input type="text" name="reference_nm" value="<%= library[i].reference_nm %>">
+                <label for=""><%= library[i].reference_nm %></label>
+                <input type="hidden" name="reference_nm" value="<%= library[i].reference_nm %>">
+                <br>
         
                 <img src="<%= library[i].url %>" alt="" name="url">
 
+                <br>
         
                 
                <button type="sumbit">Request</button>

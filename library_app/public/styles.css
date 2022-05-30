@@ -117,3 +117,57 @@ h1 {
     border-radius: 20px;
     border: none;
 }
+
+.libBookCoverImg{
+    background-image: url(https://images6.alphacoders.com/573/573648.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35rem;
+}
+.libBookH1 {
+    text-align: center;
+    color: crimson;
+    font-size: 3em;
+    margin: 3% 0;
+}
+.libContainer {
+    width: 80%;
+    margin: 3% 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.libBookForm {
+    width: 200px;
+    /* word-wrap: break-word; */
+    margin-bottom: 2%;
+    
+}
+#search {
+    padding: 10px;
+    width: 30%;
+    border: 1px solid crimson;
+    margin-left: 10%;
+    border-radius: 15px;
+}
+.libBookForm img{
+    height: 200px;
+    width: 150px;
+}
+.libBookForm label {
+    border: none;
+    word-wrap: break-word;
+    width: 100%;
+    line-height: 1.5em;
+}
+.libBookForm button {
+    padding: 5px;
+    width: 30%;
+    margin: 3%;
+    background-color: crimson;
+    color: white;
+    font-size: .75em;
+    border-radius: 20px;
+    border: none;
+}
