@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    width: 100%; 
+    position: relative;
+    background-color: crimson;
+    
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin-left: 50%;
+    
+}nav ul li {
+    padding: 10px 5px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.3em;
+}
+
+h1 {
+    margin-bottom: 2%;
+}
+
+.libImg {
+    background-image: url(https://blog.library.si.edu/wp-content/uploads/2021/04/SLA_Dibner_Library.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35rem;
+    
+}
+.logForm {
+    width: 500px;
+    height: auto;
+    margin-left: 30%;
+    background-color: rgb(238, 239, 240, 0.5);
+    text-align: center;
+    margin-top: 6%;
+    padding: 2% 0;
+}
+.loginIcon {
+    width: 300px;
+    height: 200px;
+}
+.logForm input[name="email"], input[name="password"] {
+    padding: 3%;
+    width: 70%;
+    border-radius: 15px;
+    margin: 1% 0;
+    border: 1px solid crimson;
+}
+.logForm .remGet {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 2% 15% 1% 15%;
+}
+.logForm button {
+    padding: 10px;
+    width: 30%;
+    margin-bottom: 3%;
+    background-color: crimson;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 20px;
+    border: none;
+}
+.row {
+    display: flex;
+    width: 80%;
+    margin: 6% 10%;
+}
+.col {
+    flex: 50%;
+}
+.regImg {
+    background-image: url(https://media.istockphoto.com/photos/elearning-class-and-ebook-digital-technology-in-education-concept-pc-picture-id1004209050?k=20&m=1004209050&s=612x612&w=0&h=Pv95CEiD1UoeVbg-cMSxvcshbiGcudSalXCjMa6UL3I=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 502px;
+}
+.regForm {
+    width: 500px;
+    height: auto;
+    /* margin-left: 30%; */
+    background-color: rgb(238, 239, 240, 0.5);
+    text-align: center;
+    padding: 2% 0;  
+}
+.regForm h1 {
+    color: crimson;
+}
+.regForm input[name="email"], input[name="password"], input[name="first_nm"], input[name="last_nm"], input[name="student_id"] {
+    padding: 2.5%;
+    width: 70%;
+    border-radius: 15px;
+    margin: 2% 0;
+    border: 1px solid crimson;
+}
+
+.regForm button {
+    padding: 10px;
+    width: 30%;
+    margin: 3%;
+    background-color: crimson;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 20px;
+    border: none;
+}

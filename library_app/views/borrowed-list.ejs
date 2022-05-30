@@ -7,6 +7,9 @@
     <title><%= page_title  %> </title>
 </head>
 <body>
+
+    <%- include('nav.ejs') %> 
+
     <a href="/logout"><button type="submit">Logout</button></a>
 
     <form action="/borrow_list" method="post" class="form">

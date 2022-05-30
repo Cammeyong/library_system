@@ -5,15 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= page_title %> </title>
+    <link rel="stylesheet" href="../public/styles.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/student_register">Register</a></li>
-            <li><a href="/login">Login</a></li>
-        </ul>
-    </nav>
+    <%- include('nav.ejs') %> 
+
+    <div class="libImg"></div>
 
     <h1>Stony Hill Primary School Library</h1>
 

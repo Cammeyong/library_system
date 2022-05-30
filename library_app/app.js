@@ -12,13 +12,14 @@ var conn = require('./lib/db');
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname,'public')))
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 var indexRoute = require('./routes/index');
 var student_registerRoute = require('./routes/student_register');
 var borrowed_listRoute = require('./routes/borrowed_list');
 var loginRoute = require('./routes/login');
+var library_booksRoute = require('./routes/library_books');
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +36,7 @@ app.use(session({
 app.use(flash());
 
 //routing middleware
+app.use(library_booksRoute);
 app.use(student_registerRoute);
 app.use(loginRoute);
 app.use(borrowed_listRoute);
