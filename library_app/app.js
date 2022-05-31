@@ -12,12 +12,13 @@ var conn = require('./lib/db');
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 
 var indexRoute = require('./routes/index');
 var student_registerRoute = require('./routes/student_register');
 var borrowed_listRoute = require('./routes/borrowed_list');
+var book_requestRoute = require('./routes/book_request');
 var loginRoute = require('./routes/login');
 var library_booksRoute = require('./routes/library_books');
 
@@ -40,6 +41,7 @@ app.use(library_booksRoute);
 app.use(student_registerRoute);
 app.use(loginRoute);
 app.use(borrowed_listRoute);
+app.use(book_requestRoute),
 app.use('/', indexRoute);
 
 app.listen(port, () => console.log(`Listening on port ${port}..`));

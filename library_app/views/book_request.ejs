@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/styles.css">
+</head>
+<body>
+
+    <nav>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/borrow_list">Student Borrow List</a></li>
+            <li><a href="/login">Login</a></li>
+
+        </ul>
+    </nav>
+    
+    <h3>Book Requests</h3>
+
+    <form action="/book_request/post" method="post" class="borrowListForm">
+
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Id</th>
+                    <th>Book Title</th>
+                    <th>Request Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                <% if(request.length) { for(var i = 0; i< request.length; i++) {%>
+
+                    <input type="hidden" name="status" id="status">
+
+                    <tr>
+                        <td>
+                            <%= request[i].student_id %>
+                            <input type="hidden" name="student_id" id="">
+                        </td>
+                        <td>
+                            <%= request[i].book_title %>
+                            <input type="hidden" name="book_title" id="">
+                        </td>
+                        <td>
+                            <%= new Date(request[i].request_date).toLocaleDateString('fr-CA') %>
+                            <input type="hidden" name="request_date" id="">
+                        </td>
+                        <td><%= new Date(request[i].return_date).toLocaleDateString('fr-CA') %></td>
+                        <td>
+                            <a href="/book_request/post<%=request[i].id%>" class="confirm"><button type="submit">Confirm</button></a>
+                            <a href="/book_request/delete/:id<%=request[i].id%>" class="confirm">Delete</a>
+                            
+                        </td>
+                    </tr>
+                <% }
+                    
+                }else{ %>
+                    <tr>
+                        <td colspan="5">No Books Borrowed </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+    </form>
+    
+</body>
+</html>

@@ -5,16 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= page_title  %> </title>
+    <link rel="stylesheet" href="../public/styles.css">
 </head>
 <body>
 
-    <%- include('nav.ejs') %> 
+    <nav>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/book_request">View Requests</a></li>
+            <li><a href="/login">Login</a></li>
 
-    <a href="/logout"><button type="submit">Logout</button></a>
+        </ul>
+    </nav>
 
-    <form action="/borrow_list" method="post" class="form">
 
-        <h1>Students Borrowed Books List</h1>
+    <a href="/logout" class="userLogout"><button type="submit" >Logout</button></a>
+
+    <h3>Students Borrowed Books List</h3>
+
+    <form action="/borrow_list" method="post" class="borrowListForm">
 
         <table>
             <thead>
