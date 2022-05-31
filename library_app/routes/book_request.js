@@ -30,9 +30,9 @@ router.get('/book_request', function(req, res) {
 router.post('/book_request/post', function(req,res,){
     let data = {student_id:   req.body.student_id,
         book_title:     req.body.book_title,
-        request_date:      req.body.request_date,
-        return_date:        req.body.return_date,
-        status:     req.body.status,    
+       borrowed_date:   req.body.borrowed_date,
+        return_date:    req.body.return_date,
+        status:         req.body.status,    
     };
     
 

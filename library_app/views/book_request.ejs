@@ -20,9 +20,6 @@
     </nav>
     
     <h3>Book Requests</h3>
-
-    <form action="/book_request/post" method="post" class="borrowListForm">
-
         
         <table>
             <thead>
@@ -32,35 +29,49 @@
                     <th>Request Date</th>
                     <th>Return Date</th>
                     <th>Status</th>
+                    <th>Action</th>
                     
                 </tr>
             </thead>
 
             <tbody>
                 <% if(request.length) { for(var i = 0; i< request.length; i++) {%>
+                    <form action="/book_request/post" method="post" class="borrowListForm">
 
-                    <input type="hidden" name="status" id="status">
+                        <tr>
+                            <td>
+                                <%= request[i].student_id %>
+                                <input type="hidden" name="student_id" id="" value="<%= request[i].student_id %>">
+                            </td>
+                            <td>
+                                <%= request[i].book_title %>
+                                <input type="hidden" name="book_title" id="" value="<%= request[i].book_title %>">
+                            </td>
+                            <td>
+                                <%= new Date(request[i].request_date).toLocaleDateString('fr-CA') %>
 
-                    <tr>
-                        <td>
-                            <%= request[i].student_id %>
-                            <input type="hidden" name="student_id" id="">
-                        </td>
-                        <td>
-                            <%= request[i].book_title %>
-                            <input type="hidden" name="book_title" id="">
-                        </td>
-                        <td>
-                            <%= new Date(request[i].request_date).toLocaleDateString('fr-CA') %>
-                            <input type="hidden" name="request_date" id="">
-                        </td>
-                        <td><%= new Date(request[i].return_date).toLocaleDateString('fr-CA') %></td>
-                        <td>
-                            <a href="/book_request/post<%=request[i].id%>" class="confirm"><button type="submit">Confirm</button></a>
-                            <a href="/book_request/delete/:id<%=request[i].id%>" class="confirm">Delete</a>
-                            
-                        </td>
-                    </tr>
+                                <input type="hidden" name="borrowed_date" id="" value="<%= new Date(request[i].request_date).toLocaleDateString('fr-CA') %>">
+                            </td>
+
+                            <td>
+                                <%= new Date().toLocaleDateString('fr-CA') %>
+                                <input type="hidden" name="return_date" id="" value="<%= new Date().toLocaleDateString('fr-CA') %>">
+                            </td>
+
+                            <td>
+                                <select name="status">
+                                    <option value="Outstanding">Outstanding</option>
+                                    <option value="Returned">Returned</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="submit">Confirm</button>
+                                <a href="/book_request/delete/:id<%=request[i].id%>" class="confirm">Delete</a>
+
+                                
+                            </td>
+                        </tr>
+                    </form>
                 <% }
                     
                 }else{ %>
@@ -71,7 +82,7 @@
             </tbody>
         </table>
 
-    </form>
+    
     
 </body>
 </html>

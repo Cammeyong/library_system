@@ -14,6 +14,8 @@
 
     <h1 class="libBookH1">Library Book Directory</h1>
 
+    <h4 class="libBookH4">Welcome <%= my_session.first_nm %> </h4>
+
     <input type="search" name="search" id="search" placeholder="Search Books">
 
     <div class="libContainer">
@@ -23,7 +25,7 @@
             
             <form action="/book_request/add" method="post" class="libBookForm">
 
-                <input type="hidden" name="student_id" id="student_id">
+                <input type="hidden" name="student_id" id="student_id" value="<%= my_session.student_id %> ">
 
                 <label for=""><%= library[i].book_title %></label>
                 <input type="hidden" name="book_title" value="<%= library[i].book_title %>">

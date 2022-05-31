@@ -14,6 +14,16 @@
 
     <h1>Stony Hill Primary School Library</h1>
 
+    <% 
+        if(my_session.loggedin == true){
+    %> 
+        <a href="/logout"><button type="submit" class="welUserLogout">Logout</button></a>
+        
+        <h3 class="welUser">Welcome <%= my_session.first_nm %></h3>       
+     
+    <%
+        }
+    %>
     
 </body>
 </html>

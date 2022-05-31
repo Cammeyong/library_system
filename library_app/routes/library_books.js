@@ -4,6 +4,7 @@ var conn = require('../lib/db');
 
 router.get('/library_books', function(req, res) {
     
+    if(req.session.loggedin == true) {
     conn.query('SELECT * FROM library_books', function(err,row)     {
     
         if(err){ 
@@ -16,12 +17,17 @@ router.get('/library_books', function(req, res) {
         else{ 
             res.render('../views/library_books',
             {
-                page_title: "Lirary",
-                library: row
+                page_title: "Library",
+                library: row,
+                my_session: req.session
+
             });
         }
                             
     });
+} else {
+    res.redirect("/login");
+}
     
 });
 

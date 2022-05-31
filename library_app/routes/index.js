@@ -4,6 +4,7 @@ var router = express.Router();
 router.get('/', function(req,res){
     res.render('index', {
         page_title: 'Library',
+        my_session: req.session
     });
 });
 
